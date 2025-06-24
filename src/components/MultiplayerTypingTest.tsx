@@ -172,18 +172,30 @@ const MultiplayerTypingTest = ({ duration, onBack, room, setRoom }: MultiplayerT
   // Themed UI
   if (!joined) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-pink-900">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900">
         <Card className="p-8 max-w-md w-full">
-          <h2 className="text-2xl font-bold mb-4 text-center text-white">Join or Create a Room</h2>
+          <h2 className="text-2xl font-bold mb-4 text-center text-white flex items-center justify-center gap-2">
+            <Users className="w-7 h-7 text-blue-400 mr-2" />
+            Multiplayer Room
+          </h2>
+          <p className="text-blue-200 text-center mb-4">
+            Create a new room or join an existing one to challenge a friend in real-time typing!<br/>
+            <span className="text-blue-300 text-sm">Tip: Share your room name with your friend so they can join you.</span>
+          </p>
+          <ul className="text-xs text-blue-300 mb-4 list-disc list-inside text-left">
+            <li>Room names are case-sensitive.</li>
+            <li>Each room supports 2 players for a 1v1 match.</li>
+            <li>Once both players join, the game will start automatically.</li>
+          </ul>
           <input
             type="text"
             placeholder="Room name..."
             value={room || ''}
             onChange={e => setRoom(e.target.value)}
-            className="w-full mb-4 px-4 py-2 rounded border border-pink-400 bg-slate-800 text-white"
+            className="w-full mb-4 px-4 py-2 rounded border border-blue-400 bg-slate-800 text-white"
           />
-          <Button onClick={handleJoin} className="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 rounded">Join Room</Button>
-          <Button onClick={handleBack} variant="outline" className="w-full mt-2 border-pink-400 text-pink-300">Back</Button>
+          <Button onClick={handleJoin} className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded">Join Room</Button>
+          <Button onClick={handleBack} variant="outline" className="w-full mt-2 border-blue-400 text-blue-300">Back</Button>
         </Card>
       </div>
     );
@@ -191,18 +203,18 @@ const MultiplayerTypingTest = ({ duration, onBack, room, setRoom }: MultiplayerT
 
   if (waiting) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-pink-900">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900">
         <Card className="p-8 max-w-md w-full text-center">
           <h2 className="text-2xl font-bold mb-4 text-white">Waiting for an opponent...</h2>
-          <p className="text-pink-200 mb-4">Share the room name with a friend to join!</p>
-          <Button onClick={handleBack} variant="outline" className="w-full border-pink-400 text-pink-300">Back</Button>
+          <p className="text-blue-200 mb-4">Share the room name with a friend to join!</p>
+          <Button onClick={handleBack} variant="outline" className="w-full border-blue-400 text-blue-300">Back</Button>
         </Card>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-pink-900 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 relative overflow-hidden">
       {/* osu! style animated background circles */}
       <div className="absolute inset-0 opacity-15">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 border-2 border-pink-500 rounded-full animate-pulse"></div>
